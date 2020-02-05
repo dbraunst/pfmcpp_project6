@@ -113,13 +113,13 @@ struct U2
                 write something that makes the distance between that->secondVal and that->firstVal get smaller
                 */
                 if(that->secondVal > that->firstVal)
-                    {
-                        that->secondVal -= std::abs(that->secondVal - that->firstVal) / 2;
-                    }
-                    else 
-                    {
-                        that->secondVal += std::abs(that->secondVal - that->firstVal) / 2;
-                    }
+                {
+                    that->secondVal -= std::abs(that->secondVal - that->firstVal) / 2;
+                }
+                else 
+                {
+                    that->secondVal += std::abs(that->secondVal - that->firstVal) / 2;
+                }
             }
             std::cout << "U's secondVal updated value: " << that->secondVal << std::endl;
             return that->secondVal * that->firstVal;
@@ -134,9 +134,12 @@ int main()
     T second(12.0,"second");                                             //6
     
     Comparer f;                                            //7
-    auto* smaller = f.compare(&first,&second);                              //8
-    std::cout << "the smaller one is << " << smaller->name << std::endl; //9
     
+    auto* smaller = f.compare(&first,&second);                              //8
+    if (smaller!= nullptr){
+        std::cout << "the smaller one is << " << smaller->name << std::endl; //9
+    }
+
     U third;
     float updatedValue = 5.f;
     std::cout << "[static func] third's multiplied values: " << U2::shrinkDistance(&third, &updatedValue) << std::endl;                  //11
