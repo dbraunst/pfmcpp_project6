@@ -136,7 +136,8 @@ int main()
     Comparer f;                                            //7
     
     auto* smaller = f.compare(&first,&second);                              //8
-    if (smaller!= nullptr){
+    if (smaller!= nullptr)
+    {
         std::cout << "the smaller one is << " << smaller->name << std::endl; //9
     }
 
